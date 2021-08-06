@@ -20,7 +20,7 @@ public class PrinterLoading implements Runnable {
     @Override
     public void run() {
         while (runnable) {
-            System.out.print("\rLoading files... " + FilesProcessed.getFilesProcessed());
+            System.out.print("\rLoading files... " + FilesProcessed.getFilesProcessed() + " Founded files: " + FilesFounded.getFoundedFiles());
             System.out.flush();
 
             try {

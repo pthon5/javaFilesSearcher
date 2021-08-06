@@ -53,10 +53,12 @@ public class Parser {
                         if (AppConfig.getCaseSensitive()) {
                             if (s.getName().toLowerCase(Locale.ROOT).endsWith(AppConfig.getExtension())) {
                                 fileList.add(s);
+                                FilesFounded.increment();
                             }
                         } else {
                             if (s.getName().toLowerCase(Locale.ROOT).endsWith(AppConfig.getExtension().toLowerCase(Locale.ROOT))) {
                                 fileList.add(s);
+                                FilesFounded.increment();
                             }
                         }
 
@@ -80,10 +82,12 @@ public class Parser {
                         if (AppConfig.getCaseSensitive()) {
                             if (KMPCheck(s.getName(), AppConfig.getFilename())) {
                                 fileList.add(s);
+                                FilesFounded.increment();
                             }
                         } else {
                             if (KMPCheck(s.getName(), AppConfig.getFilename().toLowerCase(Locale.ROOT))) {
                                 fileList.add(s);
+                                FilesFounded.increment();
                             }
                         }
 

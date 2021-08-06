@@ -1,14 +1,10 @@
 package com.pthon;
 
 public class FilesProcessed {
-    private static int filesProcessed = 0;
+    private static long filesProcessed = 0;
 
-    public static int getFilesProcessed() {
+    public static long getFilesProcessed() {
         return filesProcessed;
-    }
-
-    public static void setFilesProcessed(int filesProcessed1) {
-        filesProcessed = filesProcessed1;
     }
 
     public static void increment() {
