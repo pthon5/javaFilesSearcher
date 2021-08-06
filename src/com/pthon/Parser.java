@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Parser {
 
@@ -43,7 +44,7 @@ public class Parser {
     public static void loadFilesByExtension(File path, List<File> fileList) {
         if (path.isDirectory() &&  !Files.isSymbolicLink(path.getAbsoluteFile().toPath())) {
             try {
-                for (File s : path.listFiles()) {
+                for (File s : Objects.requireNonNull(path.listFiles())) {
                     if (s.isDirectory()) {
                         loadFilesByExtension(s, fileList);
                     } else {
@@ -62,7 +63,7 @@ public class Parser {
                     }
                 }
             } catch (NullPointerException e) {
-                e.printStackTrace();
+
             }
         }
     }
@@ -70,7 +71,7 @@ public class Parser {
     public static void loadFilesByFilename(File path, List<File> fileList) {
         if (path.isDirectory() &&  !Files.isSymbolicLink(path.getAbsoluteFile().toPath())) {
             try {
-                for (File s : path.listFiles()) {
+                for (File s : Objects.requireNonNull(path.listFiles())) {
                     if (s.isDirectory()) {
                         loadFilesByFilename(s, fileList);
                     } else {
@@ -90,7 +91,6 @@ public class Parser {
                     }
                 }
             } catch (NullPointerException e) {
-                e.printStackTrace();
             }
         }
     }
