@@ -13,9 +13,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        AppConfig.setPath(UserHelper.ask("Path: "));
+        AppConfig.setPath(UserHelper.ask("Path: ").trim());
 
         File rootPath = new File(AppConfig.getPath());
+        if (!rootPath.isDirectory()) {
+            System.out.println("Is not a valid directory");
+            System.exit(1);
+        }
 
         if (UserHelper.ask("Case sensitive search? (y/n) ").toLowerCase(Locale.ROOT).equals("y")) {
             AppConfig.setCaseSensitive(true);

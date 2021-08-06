@@ -5,6 +5,6 @@ import java.util.Scanner;
 public class UserHelper {
     public static String ask(String question) {
         System.out.print(question);
-        return new Scanner(System.in).next();
+        return new Scanner(System.in).nextLine();
     }
 }
